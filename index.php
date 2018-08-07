@@ -1,23 +1,37 @@
 <?php
-class User {
-	public $username;
-	public static $minPassLength = 5;
+abstract class Animal {
+	public $name;
+	public $colour;
 
-	public static function validatePassword( $password ) {
-		if ( strlen( $password ) >= self::$minPassLength ) {
-			return true;
-		} else {
-			return false;
-		}
+	public function describe() {
+		return $this->name . ' is ' . $this->colour;
+	}
+
+	abstract public function makeSound();
+}
+
+class Duck extends Animal {
+	public function describe() {
+		return parent::describe();
+	}
+
+	public function makeSound() {
+		return 'Quack!';
 	}
 }
 
-$password = 'pass';
+class Dog extends Animal {
+	public function describe() {
+		return parent::describe();
+	}
 
-// if( User::validatePassword( $password ) ) {
-// 	echo 'Password is valid';
-// 	} else {
-// 		echo 'Password is not valid';
-// }
+	public function makeSound() {
+		return 'Woof!';
+	}
+}
 
-echo User::$minPassLength;
+$animal = new Dog();
+$animal->name = 'Socks';
+$animal->colour = 'Brown';
+// echo $animal->describe();
+echo $animal->makeSound();
