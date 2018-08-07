@@ -1,37 +1,10 @@
 <?php
-abstract class Animal {
-	public $name;
-	public $colour;
+spl_autoload_register( function( $class_name ) {
+	include $class_name . '.php';
+});
 
-	public function describe() {
-		return $this->name . ' is ' . $this->colour;
-	}
+$foo = new Foo;
+$bar = new Bar;
 
-	abstract public function makeSound();
-}
-
-class Duck extends Animal {
-	public function describe() {
-		return parent::describe();
-	}
-
-	public function makeSound() {
-		return 'Quack!';
-	}
-}
-
-class Dog extends Animal {
-	public function describe() {
-		return parent::describe();
-	}
-
-	public function makeSound() {
-		return 'Woof!';
-	}
-}
-
-$animal = new Dog();
-$animal->name = 'Socks';
-$animal->colour = 'Brown';
-// echo $animal->describe();
-echo $animal->makeSound();
+$bar->sayHello();
+// $bar->sayHi();
