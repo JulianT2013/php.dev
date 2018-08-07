@@ -1,10 +1,23 @@
 <?php
-spl_autoload_register( function( $class_name ) {
-	include $class_name . '.php';
-});
+class People {
+	public $person1 = 'Mike';
+	public $person2 = 'Shirley';
+	public $person3 = 'Jeff';
 
-$foo = new Foo;
-$bar = new Bar;
+	protected $person4 = 'John';
+	private $person5 = 'Moss';
 
-$bar->sayHello();
-// $bar->sayHi();
+	// function iterateObject() {
+	// 	foreach( $this as $key => $value ) {
+	// 		print "$key => $value\n";
+	// 	}
+	// }
+}
+
+$people = new People;
+
+foreach( $people as $key => $value ) {
+	print "$key => $value\n";
+}
+
+// $people->iterateObject();
