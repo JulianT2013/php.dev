@@ -1,23 +1,23 @@
 <?php
+class User {
+	public $username;
+	public static $minPassLength = 5;
 
-class First {
-	public $id = 23;
-	protected $name = 'Jake Jackson';
-
-	public function saySomething( $word ) {
-		echo $word;
+	public static function validatePassword( $password ) {
+		if ( strlen( $password ) >= self::$minPassLength ) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
-class Second extends First {
-	public function getName() {
-		echo $this->name;
-	}
+$password = 'pass';
 
-}
+// if( User::validatePassword( $password ) ) {
+// 	echo 'Password is valid';
+// 	} else {
+// 		echo 'Password is not valid';
+// }
 
-$second = new Second;
-
-echo $second->getName();
-
-// echo $second->saySomething( 'Hello World' );
+echo User::$minPassLength;
