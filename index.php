@@ -1,27 +1,23 @@
 <?php
-class User {
-	public function __construct() {
-		// echo 'Constructor called';
+class Post {
+	private $name;
+
+	public function __set( $name, $value ) {
+		echo 'Setting ' . $name . ' to <strong>' . $value . '</strong><br />';
+		$this->name = $value;
 	}
 
-	public function register() {
-		echo 'User Registered';
+	public function __get( $name ) {
+		echo 'Getting ' . $name . ' <strong>' . $this->name . '</strong><br />';
 	}
 
-	public function login( $username, $password ) {
-		$this->auth_user( $username, $password );
-	}
-
-	public function auth_user( $username, $password ) {
-		echo $username . ' is now authenticated';
-	}
-
-	public function __destruct() {
-		// echo 'Destructor called';
+	public function __isset( $name ) {
+		echo 'Is ' . $name . ' set?<br />';
+		return isset( $this->name );
 	}
 }
 
-$User = new User;
-
-// $User->register();
-$User->login( 'Julian', '1234 ');
+$post = new Post;
+$post->name = 'Testing';
+echo $post->name;
+var_dump( isset( $post->name ) );
