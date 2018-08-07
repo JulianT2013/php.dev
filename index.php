@@ -1,23 +1,23 @@
 <?php
-class Post {
-	private $name;
 
-	public function __set( $name, $value ) {
-		echo 'Setting ' . $name . ' to <strong>' . $value . '</strong><br />';
-		$this->name = $value;
-	}
+class First {
+	public $id = 23;
+	protected $name = 'Jake Jackson';
 
-	public function __get( $name ) {
-		echo 'Getting ' . $name . ' <strong>' . $this->name . '</strong><br />';
-	}
-
-	public function __isset( $name ) {
-		echo 'Is ' . $name . ' set?<br />';
-		return isset( $this->name );
+	public function saySomething( $word ) {
+		echo $word;
 	}
 }
 
-$post = new Post;
-$post->name = 'Testing';
-echo $post->name;
-var_dump( isset( $post->name ) );
+class Second extends First {
+	public function getName() {
+		echo $this->name;
+	}
+
+}
+
+$second = new Second;
+
+echo $second->getName();
+
+// echo $second->saySomething( 'Hello World' );
