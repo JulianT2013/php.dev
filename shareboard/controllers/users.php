@@ -6,6 +6,6 @@
  * Time: 5:36 PM
  */
 
-class User extends Controller{
+class user extends Controller{
 
 }

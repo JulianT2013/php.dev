@@ -6,9 +6,15 @@
  * Time: 5:36 PM
  */
 
-class Shares extends Controller{
+class shares extends Controller{
 	protected function Index(){
-		$viewmodel = new HomeModel();
-		$this->ReturnView( $viewmodel->Index(), true );
+		$viewmodel = new ShareModel();
+		$this->ReturnView($viewmodel->Index(), true);
+	}
+
+	protected function add(){
+		$viewmodel = new ShareModel();
+		$this->ReturnView($viewmodel->add(), true);
 	}
 }
+
