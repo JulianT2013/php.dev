@@ -7,7 +7,7 @@
  */
 
 /* Include Config */
-error_reporting( ~E_NOTICE );
+//error_reporting( ~E_NOTICE );
 require( 'config.php ');
 require( 'classes/Bootstrap.php' );
 require( 'classes/Controller.php' );
