@@ -12,7 +12,7 @@
 		Share Something!
 	</div>
 	<div class="card-body">
-		<form method="post" action="<?= $_SERVER['PHP_SELF'] ?>">
+		<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 			<div class="form-group">
 				<label class="card-title">Share Title</label>
 				<input typ="text" name="title" class="form-control" />
