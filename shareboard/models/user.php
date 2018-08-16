@@ -5,3 +5,10 @@
  * Date: 10/08/2018
  * Time: 5:53 PM
  */
+
+class UserModel {
+
+	public function Index() {
+		return;
+	}
+}
