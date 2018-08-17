@@ -6,12 +6,16 @@
  * Time: 3:29 PM
  */
 
+/* Start Session */
+session_start();
+
 /* Include Config */
 //error_reporting( ~E_NOTICE );
 require( 'config.php ');
 require( 'classes/Bootstrap.php' );
 require( 'classes/Controller.php' );
 require( 'classes/Model.php' );
+require( 'classes/Messages.php' );
 
 require( 'controllers/home.php' );
 require( 'controllers/shares.php' );

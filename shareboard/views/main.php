@@ -32,6 +32,18 @@
 			</li>
 		</ul>
 
+		<?php if ( isset( $_SESSION['is_logged_in'] ) ) : ?>
+
+			<ul class="navbar-nav navbar-right">
+				<li class="nav-item">
+					<a class="nav-link" href="<?= ROOT_URL ?>">Welcome <?= $_SESSION['user_data']['name'] ?></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<?= ROOT_URL ?>users/logout">Logout</a>
+				</li>
+			</ul>
+
+		<?php else: ?>
 			<ul class="navbar-nav navbar-right">
 				<li class="nav-item">
 					<a class="nav-link" href="<?= ROOT_URL ?>users/login">Login</a>
@@ -40,6 +52,7 @@
 					<a class="nav-link" href="<?= ROOT_URL ?>users/register">Register</a>
 				</li>
 			</ul>
+		<?php endif; ?>
 
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
