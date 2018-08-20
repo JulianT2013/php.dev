@@ -9,7 +9,7 @@
 
 <div class="card" xmlns="http://www.w3.org/1999/html">
 <div class="card-header">
-	Regiser User
+	Register User
 </div>
 <div class="card-body">
 	<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">

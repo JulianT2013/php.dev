@@ -12,14 +12,15 @@
 		<a class="btn btn-primary btn-share" href="<?= ROOT_PATH ?>shares/add">Share Something</a>
 	<?php endif; ?>
 	<?php foreach ( $viewmodel as $item ): ?>
-		<div class="well">
-			<h3><?= $item['title'] ?></h3>
-			<small><?= $item['create_date'] ?></small>
-			<hr />
-			<p><?= $item['body'] ?></p>
-			<br />
-			<a class="btn btn-secondary" href="<?= $item['link'] ?>" target="_blank">Go to Website</a>
+		<div class="card">
+			<div class="card-header">
+				<h3><?= $item['title'] ?></h3>
+				<small><?= $item['create_date'] ?></small>
+			</div>
+			<div class="card-body">
+				<p class="card-text"><?= $item['body'] ?></p>
+				<a class="btn btn-secondary" href="<?= $item['link'] ?>" target="_blank">Go to Website</a>
+			</div>
 		</div>
-
 	<?php endforeach; ?>
 </div>

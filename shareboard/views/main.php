@@ -11,6 +11,8 @@
 <html>
 <head>
 	<title>Shareboard</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script defer src="<?= ROOT_URL ?>assets/js/bootstrap.min.js" ></script>
 	<link rel="stylesheet" href="<?= ROOT_URL ?>assets/css/bootstrap.css">
 	<link rel="stylesheet" href="<?= ROOT_URL ?>assets/css/styles.css">
 </head>
@@ -62,6 +64,7 @@
 </nav>
 
 <main role="main" class="container">
+	<?php Messages::display(); ?>
 
 	<div class="row">
 		<?php require( $view ); ?>

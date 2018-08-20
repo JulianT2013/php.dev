@@ -14,12 +14,19 @@ class UserModel extends Model {
 		$password = md5( $post['password'] );
 
 		if ( isset( $post['submit'] ) ) {
-			/* Insert into MySQL */
+
+			if ( $post['uname'] == '' || $post['email'] == '' || $post['password'] == '' ) {
+				Messages::setMsg( 'Please Fill In All Fields', 'error' );
+				return;
+			}
+
+			/* Compare Login */
 			$this->query( 'INSERT INTO users (uname, email, password) VALUES(:uname, :email, :password)' );
 			$this->bind( ':uname', $post['uname'] );
 			$this->bind( ':email', $post['email'] );
 			$this->bind( ':password', $password );
 			$this->execute();
+
 			/* Verify */
 			if ( $this->lastInsertId() ) {
 				/* Redirect */
@@ -35,7 +42,8 @@ class UserModel extends Model {
 
 		$password = md5( $post['password'] );
 
-		if ( isset( $post['submit'] ) ) {
+		if (isset( $post['submit'] ) ) {
+
 			/* Compare Login */
 			$this->query( 'SELECT * FROM users WHERE email = :email AND password = :password' );
 			$this->bind( ':email', $post['email'] );
@@ -43,6 +51,7 @@ class UserModel extends Model {
 			$this->execute();
 
 			$row = $this->single();
+
 			if ( $row ) {
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user_data']    = [
@@ -52,7 +61,7 @@ class UserModel extends Model {
 				];
 				header( 'Location: ' . ROOT_URL . 'shares' );
 			} else {
-				echo 'Incorrect Login';
+				Messages::setMsg( 'Incorrect Login', 'error' );
 			}
 		}
 		return;
