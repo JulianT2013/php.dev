@@ -65,7 +65,6 @@
 
 <main role="main" class="container">
 	<?php Messages::display(); ?>
-
 	<div class="row">
 		<?php require( $view ); ?>
 	</div>

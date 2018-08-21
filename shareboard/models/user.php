@@ -42,7 +42,12 @@ class UserModel extends Model {
 
 		$password = md5( $post['password'] );
 
-		if (isset( $post['submit'] ) ) {
+		if ( isset( $post['submit'] ) ) {
+
+			if ( $post['email'] == '' || $post['password'] == '' ) {
+				Messages::setMsg( 'Please Fill In All Fields', 'error' );
+				return;
+			}
 
 			/* Compare Login */
 			$this->query( 'SELECT * FROM users WHERE email = :email AND password = :password' );

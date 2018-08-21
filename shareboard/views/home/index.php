@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="text-center">
+<div class="container-fluid text-center">
 	<h1>Welcome to Shareboard</h1>
 	<p class="lead">Find something cool? Share it with our community. Look at other shares</p>
 	<a class="btn btn-primary text-center" href="<?= ROOT_PATH ?>shares">Share Now</a>
